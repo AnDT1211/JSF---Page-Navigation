@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<!---->
+   <h:form>
+      <h3>to <code>.html</code> page directly </h3>
+      <h:commandButton action="page1" value="to page 1"/>
+   </h:form>
+
+<!--   -->
+   <h:form>
+      <h3>to bean to <code>.html</code> page</h3>
+      <h:commandButton action="#{indexController.getToSecondPage}" value="to page 2"/>
+   </h:form>
+
+<!--   -->
+   <h:form>
+      <h3>to bean to <code>.html</code> page with pageId = 1</h3>
+      <h:commandLink action = "#{navigationController.getPageId}" value = "to page 1">
+         <f:param name = "pageId" value = "1" />
+      </h:commandLink>
+      <h3>to bean to <code>.html</code> page with pageId = 2</h3>
+      <h:commandLink action = "#{navigationController.getPageId}" value = "to page 2">
+         <f:param name = "pageId" value = "2" />
+      </h:commandLink>
+   </h:form>
+
+<!---->
+   <h:form>
+      <h3>to bean to <code>.html</code> page with same return</h3>
+      <h:commandButton action="#{beanManagerSamePageReturn.toPage1()}" value="to page 1" />
+      <h:commandButton action="#{beanManagerSamePageReturn.toPage2()}" value="to page 2" />
+   </h:form>
+<!---->
+
+<h:form>
+   <h3>to <code>.html</code> page 1 forward </h3>
+   <h:commandButton action="page1" value="to page 1"/>
+   <h3>to <code>.html</code> page 1 redirect </h3>
+   <h:commandButton action="page1?faces-redurect=true" value="to page 1"/>
+</h:form>
+
+</html>
